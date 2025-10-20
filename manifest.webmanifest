@@ -1,0 +1,17 @@
+{
+  "name": "Camping Checklist",
+  "short_name": "Camp List",
+  "start_url": "/CampingEquipment/",
+  "scope": "/CampingEquipment/",
+  "display": "standalone",
+  "background_color": "#228B22",
+  "theme_color": "#228B22",
+  "icons": [
+    { "src": "icon-72.png",   "sizes": "72x72",   "type": "image/png" },
+    { "src": "icon-96.png",   "sizes": "96x96",   "type": "image/png" },
+    { "src": "icon-128.png",  "sizes": "128x128", "type": "image/png" },
+    { "src": "icon-192.png",  "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png",  "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-1024.png", "sizes": "1024x1024","type": "image/png" }
+  ]
+}

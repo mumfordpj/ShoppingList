@@ -1,0 +1,150 @@
+/* ============ Theme tokens ============ */
+:root {
+  --bg: #0f1a13;
+  --card: #14251b;
+  --accent: #4ade80;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --danger: #ef4444;
+  --border: #1f2d24;
+}
+
+/* ============ Base ============ */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header { padding: 16px 16px 0; }
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* ============ Cards / Headings ============ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+h1 {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+/* ============ Controls ============ */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0 16px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+  align-items: center;
+}
+
+/* Inputs / Buttons */
+input[type="text"], select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0e1a12;
+  color: var(--text);
+  width: 100%;
+  min-width: 0;
+}
+button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0e1a12;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform .04s ease, opacity .2s ease;
+}
+button:active { transform: translateY(1px); opacity: .9; }
+button.primary {
+  background: var(--accent);
+  color: #0b1510;
+  font-weight: 600;
+  border-color: #2a8f59;
+}
+button.danger {
+  background: #2a1313;
+  border-color: #3a1b1b;
+  color: #ffb4b4;
+}
+
+/* ============ List / Items ============ */
+.list { margin-top: 4px; }
+.item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-bottom: 1px dashed var(--border);
+}
+.item:last-child { border-bottom: none; }
+.item input[type="checkbox"] { width: 20px; height: 20px; }
+.item .name {
+  display: flex; flex-direction: column; min-width: 0;
+}
+.item .name > div:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.item .cat { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+.badge {
+  display: inline-block; padding: 2px 8px; font-size: 12px;
+  border-radius: 999px; border: 1px solid var(--border); color: var(--muted);
+}
+
+/* ============ Misc ============ */
+footer {
+  margin-top: 14px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--muted);
+}
+hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+label { font-size: 12px; color: var(--muted); display:block; margin-bottom:6px; }
+
+/* ============ Mobile tweaks ============ */
+@media (max-width: 560px) {
+  .controls { grid-template-columns: 1fr; gap: 6px; }
+  .row { flex-direction: column; align-items: stretch; gap: 6px; margin: 6px 0; }
+
+  .row > * { width: 100%; }
+  button, input, select { width: 100%; padding: 8px 10px; font-size: 15px; }
+
+  .card { padding: 12px; border-radius: 10px; }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+
+  /* Put Delete on its own line to prevent overflow */
+  .item {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "check name"
+      "delete delete";
+    gap: 6px; padding: 8px 6px;
+  }
+  .item input[type="checkbox"] { grid-area: check; width: 18px; height: 18px; }
+  .item .name { grid-area: name; }
+  .item button { grid-area: delete; justify-self: end; width: auto; }
+
+  footer { font-size: 11px; flex-direction: column; gap: 4px; text-align: center; }
+}
+
+@media (max-width: 380px) {
+  .app { padding: 12px; }
+  .card { padding: 10px; }
+}
